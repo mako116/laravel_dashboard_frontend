@@ -1,0 +1,45 @@
+/* Ensure the body and HTML can overflow */
+/* html, body {
+    height: 100%;
+    overflow: auto;
+} */
+body{
+    padding: 0;
+    margin: 0;
+}
+/* Larger sidebar with added spacing */
+.sidebar {
+    height: 100vh; /* Full viewport height */
+    padding-top: 1rem; /* Adjust top padding */
+    padding-bottom: 1rem; /* Adjust bottom padding */
+    width: 250px; /* Fixed width for larger sidebar */
+}
+.backgrounds {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    background: linear-gradient(to left, #7d4be0 60%, #7748d6 40%), url('path/to/your/image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px; /* Hide sidebar initially */
+        height: 100%;
+        width: 250px;
+        overflow-x: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar.show {
+        left: 0; /* Show sidebar on toggle */
+    }
+
+    .main-content {
+        margin-left: 0; /* Adjust main content margin when sidebar is hidden */
+    }
+}
